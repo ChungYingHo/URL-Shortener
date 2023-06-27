@@ -4,10 +4,11 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
-// 引用 express 與路由器
+// 引用 express、路由器、mongoose.js
 const app = express()
 const port = process.env.PORT || 3000
 const routes = require('./routes')
+require('./config/mongoose')
 
 // 設定 handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
