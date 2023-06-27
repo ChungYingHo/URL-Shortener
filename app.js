@@ -17,6 +17,7 @@ app.set('view engine', 'handlebars')
 // 使用套件與路由器
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 app.use(routes)
 
 // 啟動監聽伺服器
