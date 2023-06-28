@@ -8,19 +8,25 @@ const url = require('../../models/url')
 
 // 建立路由
 router.get('/', (req, res)=>{
-    url.find()
-    .lean()
-    .then(res.render('index'))
-    .catch(error => console.error(error))
+    res.render('index')
 })
 
 router.post('/shortener', (req, res)=>{
-    const originURL = req.body.url
-    return url.create({ origin: `${originURL}` })
-    .then(() => res.render('shortener', {originURL}))
-    .catch(error => console.log(error))
-    // res.render('shortener', { originURL })
-    // console.log(typeof originURL)
+    const originUrl = req.body.url
+
+    url.findOne({origin: originUrl})
+    .lean()
+    .then(data =>{
+        if(data){
+            res.render('shortener', {transfer: data.transfer})
+        }else{
+            const shorterUrl = urlShortener()
+            url.create({origin: originUrl, transfer: shorterUrl})
+            .then(() => res.render('shortener', { transfer: shorterUrl }))
+                .catch(error => console.log(error))
+        }
 })
+})
+
 // 匯出路由模組
 module.exports = router

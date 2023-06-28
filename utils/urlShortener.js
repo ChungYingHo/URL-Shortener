@@ -1,4 +1,4 @@
-const letter = 'abcdefghijklmnopqrstuvwxyz0123456789'
+const letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
 function urlShortener(){
     let result = ''
