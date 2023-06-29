@@ -1,6 +1,24 @@
-<div>
-    <p>Success! Please use this link: 
-        <br><a href="http://localhost:3000/{{transfer}}">http://localhost:3000/{{transfer}}</a>
+<div class="container">
+    <p class="description">Success! Please use this link:
     </p>
-    <button class="btn-copy">Copy</button>
+    <a id="shorter-url" href="http://localhost:3000/{{transfer}}" target="_blank">
+        http://localhost:3000/{{transfer}}
+    </a>
+    <div class="btn-group">
+        <button class="btn btn-copy" onclick="copyText()">Copy</button>
+        <a href="http://localhost:3000">
+            <button class="btn btn-home">Home</button>
+        </a>
+        
+    </div>
+    
 </div>
+
+<script>
+    function copyText() {
+        const content = document.getElementById('shorter-url')
+        navigator.clipboard.writeText(content.innerText)
+        .then(() => alert('Copied!'))
+        .catch(err => console.error(err))
+    }
+</script>

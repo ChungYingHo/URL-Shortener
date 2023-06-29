@@ -18,6 +18,7 @@ app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
+app.use('/public/images/', express.static('./public/images'))
 app.use(routes)
 
 // 啟動監聽伺服器
