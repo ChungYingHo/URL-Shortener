@@ -1,7 +1,7 @@
 // * 總路由器
 // 引用 express 與 express 路由器
 const express = require('express')
-const router = express.Router()
+const router = express.Router({ mergeParams: true })
 
 // 引用 home 模組
 const home = require('./modules/home')
@@ -12,7 +12,7 @@ const shorterUrl = require('./modules/shorterUrl')
 // 將網址結構符合 / 字串的 request 導向 home 模組
 router.use('/', home)
 
-// 將網址結構符合 /:shorterUrl 字串的 request 導向 shorterUrl 模組
+// 導向 shorterUrl 模組
 router.use(shorterUrl)
 
 // 匯出路由器
