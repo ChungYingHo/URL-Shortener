@@ -40,7 +40,6 @@ npm run dev
 1. **node.js** / 14.16.0
 2. **express** / 4.17.1
 3. **mongoose** / 5.9.7
-4. **express-Handlebars** / 5.3.3
-5. **method-override** / 3.0.0
-6. **body-parser** / 1.20.2
-7. **dotenv** / 16.3.1
+4. **express-handlebars** / 5.3.3
+5. **body-parser** / 1.20.2
+6. **dotenv** / 16.3.1

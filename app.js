@@ -2,7 +2,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const methodOverride = require('method-override')
 
 // 引用 express、路由器、mongoose.js
 const app = express()
@@ -16,7 +15,6 @@ app.set('view engine', 'handlebars')
 
 // 使用套件與路由器
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use('/public/images/', express.static('./public/images'))
 app.use(routes)
