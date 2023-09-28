@@ -3,15 +3,18 @@ const express = require('express')
 const router = express.Router()
 
 // 載入資料 model
-const url = require('../../models/url')
+const db = require('../../models')
+const Url = db.Url
 
 // 建立路由
-router.get('/:shorterUrl', (req, res)=>{
-    const shorterUrl = req.params.shorterUrl
-    url.findOne({transfer: shorterUrl})
-    .lean()
-    .then(data => res.redirect(data.origin))
-    .catch(error => console.log(error))
+router.get('/:shorterUrl', async (req, res)=>{
+    try{
+        const shorterUrl = req.params.shorterUrl
+        const data = await Url.findOne({ where: { transfer: shorterUrl } })
+        res.redirect(data.origin)
+    }catch(error){
+        console.log(error)
+    }
 })
 
 // 匯出路由

@@ -1,17 +1,24 @@
-// 載入 mongoose
-const mongoose = require('mongoose')
-
-const Schema = mongoose.Schema
-
-const urlSchema = new Schema({
-    origin: {
-        type: String,
-        required: true
-    },
-    transfer: {
-        type: String
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Url extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-})
-
-// 匯出資料型態
-module.exports = mongoose.model('URL', urlSchema)
+  }
+  Url.init({
+    origin: DataTypes.STRING,
+    transfer: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Url',
+  });
+  return Url;
+};

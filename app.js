@@ -3,11 +3,11 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 
-// 引用 express、路由器、mongoose.js
+// 引用 express、路由器、mySQL
 const app = express()
 const port = process.env.PORT || 3000
 const routes = require('./routes')
-require('./config/mongoose')
+require('./config/config.json')
 
 // 設定 handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
