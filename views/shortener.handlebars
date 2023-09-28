@@ -1,17 +1,17 @@
 <div class="container">
     <p class="description">Success! Please use this link:
     </p>
-    <a id="shorter-url" href="http://localhost:3000/{{transfer}}" target="_blank">
-        http://localhost:3000/{{transfer}}
+    <a id="shorter-url" href="http://url-shortener-dev.ap-northeast-1.elasticbeanstalk.com/{{transfer}}" target="_blank">
+        http://url-shortener-dev.ap-northeast-1.elasticbeanstalk.com/{{transfer}}
     </a>
+    <p class="remind">(Since I haven't purchased a personal domain, the short URL prefix is the default AWS URL.)</p>
+
     <div class="btn-group">
         <button class="btn btn-copy" onclick="copyText()">Copy</button>
-        <a href="http://localhost:3000">
+        <a href="http://url-shortener-dev.ap-northeast-1.elasticbeanstalk.com/">
             <button class="btn btn-home">Home</button>
         </a>
-        
     </div>
-    
 </div>
 
 <script>

@@ -19,10 +19,13 @@
     "mongoose": "^5.9.7",
     "mysql2": "^3.6.1",
     "sequelize": "^6.33.0",
-    "sequelize-cli": "^6.6.1"
+    "sequelize-cli": "^6.6.1",
+    "sweetalert2": "^11.7.31"
   },
   "devDependencies": {
     "dotenv": "^16.3.1"
   },
-  "engines": { "node": "^18.17.1" }
+  "engines": {
+    "node": "^18.17.1"
+  }
 }
