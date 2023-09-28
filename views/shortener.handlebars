@@ -16,9 +16,23 @@
 
 <script>
     function copyText() {
-        const content = document.getElementById('shorter-url')
-        navigator.clipboard.writeText(content.innerText)
-        .then(() => alert('Copied!'))
-        .catch(err => console.error(err))
+        const content = document.getElementById('shorter-url');
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(content.innerText)
+                .then(() => alert('Copied!'))
+                .catch(err => console.error(err));
+        } else {
+            let textArea = document.createElement("textarea");
+            textArea.value = content.innerText;
+            textArea.style.position = "absolute";
+            textArea.style.opacity = 0;
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            document.execCommand('copy') ? alert('Copied!') : console.error('Copy failed');
+            textArea.remove();
+        }
     }
 </script>
